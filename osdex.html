@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OSDEX Clothing</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Background animation */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #111, #222, #333, #111);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+    }
+
+    header img.logo {
+      max-width: 400px;
+      height: auto;
+    }
+    <header>
+ 
+
+    nav a {
+      color: gold;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: gold;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: gold;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .cart {
+      text-align: right;
+      padding: 10px 40px;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .cart a {
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .product {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .product h3 {
+      margin: 10px 0;
+    }
+
+    .product button {
+      padding: 8px 15px;
+      background: gold;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.8);
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer h4 {
+      margin-bottom: 15px;
+    }
+
+    footer input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    footer button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: gold;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  <img src="images/logo.png" alt="OSDEX Clothing Logo" class="logo">
+  <nav>
+    <a href="#">
+      <i class="fas fa-home"></i><br>Home
+    </a>
+    <a href="#">
+      <i class="fas fa-tshirt"></i><br>Shop
+    </a>
+    <a href="#">
+      <i class="fas fa-info-circle"></i><br>About
+    </a>
+    <a href="#">
+      <i class="fas fa-envelope"></i><br>Contact
+    </a>
+    <button class="btn-cart">
+        <i class="fas fa-shopping-cart"></i><br>Cart (0)
+    </button>
+    
+  </nav>
+</header>
+
+
+
+  <section class="hero">
+  <h1>Style Meets Art</h1>
+  <p>Discover our latest collection of creative fashion pieces.</p>
+  <button class="btn-primary">Shop Now</button>
+</section>
+
+
+  <section class="products">
+    <div class="product">
+      <img src="images/shirt1.jpg" alt="T-Shirt">
+      <h3>Classic Tee</h3>
+      <p>$25</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/hoodie1.jpg" alt="Hoodie">
+      <h3>Signature Hoodie</h3>
+      <p>$45</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/cap1.jpg" alt="Cap">
+      <h3>Logo Cap</h3>
+      <p>$20</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </section>
+...
+  <footer>
+    <h4>Subscribe to our Newsletter</h4>
+    <input id="email" type="email" placeholder="Enter your email">
+    <button id="subscribeBtn">Subscribe</button>
+  </footer>
+
+  <script>
+    // simple cart & subscribe logic
+    const cartLink = document.querySelector('.cart a');
+    let cartCount = 0;
+
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        cartLink.textContent = `🛒 Cart (${cartCount})`;
+      });
+    });
+
+    document.getElementById('subscribeBtn').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Please enter a valid email.');
+        return;
+      }
+      alert('Thanks — subscription received for ' + email);
+      document.getElementById('email').value = '';
+    });
+  </script>
+</body>
+</html>
+// ...existing code...
+```// filepath: c:\Users\Osei\Desktop\web\osdex.html
+// ...existing code...
+  <section class="products">
+    <div class="product">
+      <img src="images/shirt1.jpg" alt="T-Shirt">
+      <h3>Classic Tee</h3>
+      <p>$25</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/hoodie1.jpg" alt="Hoodie">
+      <h3>Signature Hoodie</h3>
+      <p>$45</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product">
+      <img src="images/cap1.jpg" alt="Cap">
+      <h3>Logo Cap</h3>
+      <p>$20</p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </section>
+...
+  <footer>
+    <h4>Subscribe to our Newsletter</h4>
+    <input id="email" type="email" placeholder="Enter your email">
+    <button id="subscribeBtn">Subscribe</button>
+  </footer>
+  
+<div class="eagle-bg">
+    <img src="images/eagle.png" alt="Tribal Eagle Background">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 629.4911 465.2872">
+    <g>
+      <!-- paste ALL the <path> elements from your Tribal-Eagle.svg here -->
+      <path d="M448.6068,205.5093c8.0196-6.1543..."/>
+      <path d="M237.9856,226.6275c-13.716-5.6612..."/>
+      <path d="M244.1604,153.7768c-5.2747-4.462..."/>
+      <!-- continue until every <path> from your file is included -->
+    </g>
+  </svg>
+</div>
+
+
+  <script>
+    // simple cart & subscribe logic
+    const cartLink = document.querySelector('.cart a');
+    let cartCount = 0;
+
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        cartLink.textContent = `🛒 Cart (${cartCount})`;
+      });
+    });
+
+    document.getElementById('subscribeBtn').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        alert('Please enter a valid email.');
+        return;
+      }
+      alert('Thanks — subscription received for ' + email);
+      document.getElementById('email').value = '';
+    });
+  </script>
+</body>
+</html>

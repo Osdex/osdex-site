@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Background image with animation */
+
+   background: url("images/clothing-rack.png") no-repeat center center fixed;
+  background-size: cover;
+  animation: zoomBG 30s ease-in-out infinite alternate;
+}
+
+/* Subtle zoom animation */
+@keyframes zoomBG {
+  from { background-size: 100%; }
+  to   { background-size: 110%; }
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 0;
+}
+
+/* Auth container */
+.auth-container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.auth-container h1 {
+  color: gold;
+  margin-bottom: 30px;
+}
+
+/* Forms */
+.auth-form {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.auth-form h2 {
+  margin-bottom: 15px;
+  color: gold;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  background: gold;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background: #ffd700;
+}
+.auth-logo {
+  max-width: 400px;   /* adjust size */
+  margin-bottom: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* centers the logo */
+}
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: gold;              /* icon color */
+  font-size: 28px;          /* icon size */
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffd700;           /* brighter gold on hover */
+  transform: scale(1.2);    /* slight zoom effect */
+}
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: gold;              /* icon color */
+  font-size: 28px;          /* icon size */
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffd700;           /* brighter gold on hover */
+  transform: scale(1.2);    /* slight zoom effect */
+}
+
+
