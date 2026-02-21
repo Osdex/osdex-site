@@ -130,6 +130,14 @@ body {
     flex-direction: column;
   }
 }
+body {
+  margin: 0;
+  padding: 0;
+  background: url("images/your-background.jpg") no-repeat center center fixed;
+  background-size: cover;   /* scales image to fill screen */
+  background-position: center; /* keeps it centered */
+  background-attachment: fixed; /* optional: keeps it static while scrolling */
+}
 
 
 
