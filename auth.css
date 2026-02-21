@@ -1,15 +1,15 @@
-body {
+html, body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;   /* keep this */
+}
 
-  /* Background image with animation */
-
-   background: url("images/clothing-rack.png") no-repeat center center fixed;
+body {
+  background: url("images/clothing-rack.png") no-repeat center center;
   background-size: cover;
+}
+
   animation: zoomBG 30s ease-in-out infinite alternate;
 }
 
