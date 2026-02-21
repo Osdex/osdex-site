@@ -138,6 +138,17 @@ body {
   background-position: center; /* keeps it centered */
   background-attachment: fixed; /* optional: keeps it static while scrolling */
 }
+html, body {
+  height: 100%;          /* make sure body fills the screen */
+  margin: 0;             /* remove default spacing */
+  padding: 0;
+}
+
+body {
+  background: url("images/clothing-rack.png") no-repeat center center;
+  background-size: cover;   /* scales image to fill screen */
+}
+
 
 
 
