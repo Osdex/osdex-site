@@ -11,13 +11,13 @@ html, body {
   overflow-x: hidden;  /* prevent horizontal scroll */
 }
 
-/* Animated eagle background */
+/* Animated eagle background (image method) */
 .eagle-bg {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.15;
+  opacity: 0.5;
   z-index: -1;
   display: flex;
   justify-content: center;
@@ -25,13 +25,11 @@ html, body {
   animation: rotateEagle 120s linear infinite, pulseEagle 10s ease-in-out infinite;
 }
 
-.eagle-bg svg {
-  width: 80%;
-  height: auto;
-  fill: gold;
-  stroke: #fff;
-  stroke-width: 0.5;
-  opacity: 0.2;
+.eagle-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* ✅ fills screen while keeping proportions */
+  opacity: 0.5;
 }
 
 @keyframes rotateEagle {
