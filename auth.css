@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;   /* fallback for older browsers */
+  min-height: 100vh;   /* fallback */
   min-height: 100dvh;  /* ✅ dynamic viewport height for mobile */
   font-family: Arial, sans-serif;
 }
@@ -11,7 +11,7 @@ html, body {
 /* Background image with zoom animation */
 body {
   background: url("images/clothing-rack.png") no-repeat center center;
-  background-size: contain;/* fills screen, may crop */
+  background-size: cover;   /* ✅ immersive look on desktop */
   animation: zoomBG 30s ease-in-out infinite alternate;
 }
 
@@ -110,6 +110,10 @@ body {
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
+  body {
+    background-size: contain;   /* ✅ show full image on narrow screens */
+    background-color: black;    /* fills gaps if aspect ratio doesn’t match */
+  }
   .auth-form {
     width: 90%;   /* ✅ makes form fit smaller screens */
   }
@@ -117,4 +121,3 @@ body {
     max-width: 200px; /* ✅ smaller logo on phones */
   }
 }
-
