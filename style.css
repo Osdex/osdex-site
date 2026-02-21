@@ -1,165 +1,24 @@
-
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-body {
-  background: #111;
-  overflow: hidden;
-}
-
-
-
-@keyframes float {
-  from {transform: translateY(0);}
-  to {transform: translateY(-100vh);}
-}
-<div class="particles">
-  <span style="left:20%; animation-delay:0s;"></span>
-  <span style="left:50%; animation-delay:2s;"></span>
-  <span style="left:80%; animation-delay:4s;"></span>
-</div>
-body {
-  background: #111;
-  position: relative;
-  overflow: hidden;
-}
-
-
-
-@keyframes wave {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
-}
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* keeps logo and nav vertically centered */
-  padding: 20px 40px;
-  background: rgba(0,0,0,0.7);
-  height: 100px; /* fixed height */
-}
-
-header .logo {
-  height: 80px; /* scale logo inside header */
-  width: auto;
-}
-nav a {
-  color: gold;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-}
-
-nav i {
-  font-size: 20px;
-  margin-bottom: 5px;
-  display: block;
-}
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  color: gold;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-}
-
-nav i {
-  font-size: 22px;
-  margin-bottom: 5px;
-  display: block;
-}
-.btn-primary {
-  padding: 12px 25px;
-  font-size: 1rem;
-  background: gold;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  color: #000;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn-primary:hover {
-  background: #ffd700;
-}
-
-.btn-cart {
-  background: gold;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #000;
-  transition: background 0.3s ease;
-}
-
-.btn-cart:hover {
-  background: #ffd700;
-}
-.eagle-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.2; /* subtle background */
-  z-index: -1; /* behind content */
-  animation: rotateEagle 60s linear infinite;
-}
-
-@keyframes rotateEagle {
-  from { transform: rotate(0deg) scale(1); }
-  to { transform: rotate(360deg) scale(1.05); }
-}
-.eagle-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.1; /* subtle background */
-  z-index: -1;  /* behind content */
-  animation: rotateEagle 60s linear infinite;
-}
-
-.eagle-bg svg {
-  width: 100%;
-  height: 100%;
-}
-
-@keyframes rotateEagle {
-  from { transform: rotate(0deg) scale(1); }
-  to   { transform: rotate(360deg) scale(1.05); }
-}
 /* Reset and base styles */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;   /* fallback */
+  min-height: 100dvh;  /* ✅ dynamic viewport height for mobile */
   font-family: Arial, sans-serif;
   color: #fff;
-  background: #111;   /* simple dark base */
-  overflow: hidden;   /* prevent scrollbars from background animation */
+  background: #111;    /* dark base */
+  overflow-x: hidden;  /* prevent horizontal scroll */
 }
 
-/* Eagle background */
+/* Animated eagle background */
 .eagle-bg {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.15;       /* subtle visibility */
-  z-index: -1;         /* behind content */
+  opacity: 0.15;
+  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,10 +26,10 @@ body {
 }
 
 .eagle-bg svg {
-  width: 80%;          /* adjust eagle size */
+  width: 80%;
   height: auto;
-  fill: gold;          /* eagle fill color */
-  stroke: #fff;        /* outline */
+  fill: gold;
+  stroke: #fff;
   stroke-width: 0.5;
   opacity: 0.2;
 }
@@ -191,14 +50,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 15px 25px;
   background: rgba(0,0,0,0.7);
   position: sticky;
   top: 0;
 }
 
 header img.logo {
-  max-width: 200px;
+  max-width: 150px;
   height: auto;
 }
 
@@ -206,11 +65,11 @@ header img.logo {
 nav {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap; /* ✅ allows wrapping on mobile */
 }
 
 nav a, .btn-cart {
   color: gold;
-  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
   text-align: center;
@@ -221,7 +80,7 @@ nav a, .btn-cart {
 }
 
 nav i {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 5px;
   display: block;
 }
@@ -229,11 +88,11 @@ nav i {
 /* Hero section */
 .hero {
   text-align: center;
-  padding: 100px 20px;
+  padding: 80px 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: gold;
 }
 
@@ -309,6 +168,7 @@ footer h4 {
 footer input[type="email"] {
   padding: 10px;
   width: 250px;
+  max-width: 90%; /* ✅ responsive input */
   border: none;
   border-radius: 4px;
 }
@@ -321,28 +181,32 @@ footer button {
   cursor: pointer;
   border-radius: 4px;
 }
-.container {
-  width: 100%;
-  max-width: 1200px; 
-}
-@media (max-width: 600px) {
-  body {
-    font-size: 14px;
-    padding: 10px;
-  }
-  .nav {
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header {
     flex-direction: column;
+    align-items: center;
+  }
+  nav {
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
   }
 }
-body {
-  margin: 0;
-  padding: 0;
-  background: url("images/your-background.jpg") no-repeat center center fixed;
-  background-size: cover;   /* scales image to fill screen */
-  background-position: center; /* keeps it centered */
-  background-attachment: fixed; /* optional: keeps it static while scrolling */
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 60px 15px;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .products {
+    grid-template-columns: 1fr; /* ✅ stack products vertically */
+  }
 }
-
-
-
-
