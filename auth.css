@@ -117,5 +117,19 @@ body {
   color: #ffd700;           /* brighter gold on hover */
   transform: scale(1.2);    /* slight zoom effect */
 }
+.container {
+  width: 100%;
+  max-width: 1200px; /* keeps it from stretching too wide on desktops */
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .nav {
+    flex-direction: column;
+  }
+}
+
 
 
