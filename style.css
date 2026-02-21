@@ -321,4 +321,19 @@ footer button {
   cursor: pointer;
   border-radius: 4px;
 }
+.container {
+  width: 100%;
+  max-width: 1200px; 
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .nav {
+    flex-direction: column;
+  }
+}
+
+
 
