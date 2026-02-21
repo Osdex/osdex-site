@@ -11,7 +11,7 @@ html, body {
 /* Background image with zoom animation */
 body {
   background: url("images/clothing-rack.png") no-repeat center center;
-  background-size: cover;   /* fills screen, may crop */
+  background-size: contain;/* fills screen, may crop */
   animation: zoomBG 30s ease-in-out infinite alternate;
 }
 
