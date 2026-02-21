@@ -8,22 +8,50 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* Background animation */
+    /* Base styles */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       color: #fff;
-      background: linear-gradient(-45deg, #111, #222, #333, #111);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      background: #111;   /* dark base so eagle shows */
+      overflow-x: hidden;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    /* Eagle background */
+    .eagle-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      z-index: -1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: rotateEagle 120s linear infinite, pulseEagle 10s ease-in-out infinite;
     }
 
+    .eagle-bg svg {
+      width: 80%;
+      height: auto;
+      fill: gold;
+      stroke: #fff;
+      stroke-width: 0.5;
+      opacity: 0.2;
+    }
+
+    @keyframes rotateEagle {
+      from { transform: rotate(0deg) scale(1); }
+      to   { transform: rotate(360deg) scale(1.05); }
+    }
+
+    @keyframes pulseEagle {
+      0%   { opacity: 0.1; }
+      50%  { opacity: 0.3; }
+      100% { opacity: 0.1; }
+    }
+
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -35,19 +63,34 @@
     }
 
     header img.logo {
-      max-width: 400px;
+      max-width: 200px;
       height: auto;
     }
-    <header>
- 
 
-    nav a {
-      color: gold;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
+    nav a, .btn-cart {
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    nav i {
+      font-size: 20px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    /* Hero section */
     .hero {
       text-align: center;
       padding: 100px 20px;
@@ -63,27 +106,23 @@
       margin: 20px 0;
     }
 
-    .hero button {
+    .btn-primary {
       padding: 12px 25px;
       font-size: 1rem;
       background: gold;
       border: none;
       cursor: pointer;
       border-radius: 4px;
-    }
-
-    .cart {
-      text-align: right;
-      padding: 10px 40px;
-      background: rgba(0,0,0,0.6);
-    }
-
-    .cart a {
-      color: gold;
-      text-decoration: none;
+      color: #000;
       font-weight: bold;
+      transition: background 0.3s ease;
     }
 
+    .btn-primary:hover {
+      background: #ffd700;
+    }
+
+    /* Products grid */
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -120,6 +159,7 @@
       border-radius: 4px;
     }
 
+    /* Footer */
     footer {
       background: rgba(0,0,0,0.8);
       padding: 40px;
@@ -133,6 +173,7 @@
     footer input[type="email"] {
       padding: 10px;
       width: 250px;
+      max-width: 90%;
       border: none;
       border-radius: 4px;
     }
@@ -145,41 +186,71 @@
       cursor: pointer;
       border-radius: 4px;
     }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 60px 15px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Eagle background -->
+  <div class="eagle-bg">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 629.4911 465.2872">
+      <g>
+        <!-- paste all your <path> elements here -->
+        <path d="M448.6068,205.5093c8.0196-6.1543..."/>
+        <path d="M237.9856,226.6275c-13.716-5.6612..."/>
+        <path d="M244.1604,153.7768c-5.2747-4.462..."/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Header -->
   <header>
-  <img src="images/logo.png" alt="OSDEX Clothing Logo" class="logo">
-  <nav>
-    <a href="#">
-      <i class="fas fa-home"></i><br>Home
-    </a>
-    <a href="#">
-      <i class="fas fa-tshirt"></i><br>Shop
-    </a>
-    <a href="#">
-      <i class="fas fa-info-circle"></i><br>About
-    </a>
-    <a href="#">
-      <i class="fas fa-envelope"></i><br>Contact
-    </a>
-    <button class="btn-cart">
-        <i class="fas fa-shopping-cart"></i><br>Cart (0)
-    </button>
-    
-  </nav>
-</header>
+    <img src="images/logo.png" alt="OSDEX Clothing Logo" class="logo">
+    <nav>
+      <a href="#"><i class="fas fa-home"></i><br>Home</a>
+      <a href="#"><i class="fas fa-tshirt"></i><br>Shop</a>
+      <a href="#"><i class="fas fa-info-circle"></i><br>About</a>
+      <a href="#"><i class="fas fa-envelope"></i><br>Contact</a>
+      <button class="btn-cart"><i class="fas fa-shopping-cart"></i><br>Cart (0)</button>
+    </nav>
+  </header>
 
-
-
+  <!-- Hero -->
   <section class="hero">
-  <h1>Style Meets Art</h1>
-  <p>Discover our latest collection of creative fashion pieces.</p>
-  <button class="btn-primary">Shop Now</button>
-</section>
+    <h1>Style Meets Art</h1>
+    <p>Discover our latest collection of creative fashion pieces.</p>
+    <button class="btn-primary">Shop Now</button>
+  </section>
 
-
+  <!-- Products -->
   <section class="products">
     <div class="product">
       <img src="images/shirt1.jpg" alt="T-Shirt">
@@ -200,24 +271,23 @@
       <button class="add-to-cart">Add to Cart</button>
     </div>
   </section>
-...
+
+  <!-- Footer -->
   <footer>
     <h4>Subscribe to our Newsletter</h4>
     <input id="email" type="email" placeholder="Enter your email">
     <button id="subscribeBtn">Subscribe</button>
   </footer>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+  <!-- Scripts -->
   <script>
-    // simple cart & subscribe logic
-    const cartLink = document.querySelector('.cart a');
     let cartCount = 0;
+    const cartButton = document.querySelector('.btn-cart');
 
     document.querySelectorAll('.add-to-cart').forEach(btn => {
       btn.addEventListener('click', () => {
         cartCount++;
-        cartLink.textContent = `🛒 Cart (${cartCount})`;
+        cartButton.innerHTML = '<i class="fas fa-shopping-cart"></i><br>Cart (' + cartCount + ')';
       });
     });
 
@@ -227,76 +297,4 @@
         alert('Please enter a valid email.');
         return;
       }
-      alert('Thanks — subscription received for ' + email);
-      document.getElementById('email').value = '';
-    });
-  </script>
-</body>
-</html>
-
-  <section class="products">
-    <div class="product">
-      <img src="images/shirt1.jpg" alt="T-Shirt">
-      <h3>Classic Tee</h3>
-      <p>$25</p>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="images/hoodie1.jpg" alt="Hoodie">
-      <h3>Signature Hoodie</h3>
-      <p>$45</p>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-    <div class="product">
-      <img src="images/cap1.jpg" alt="Cap">
-      <h3>Logo Cap</h3>
-      <p>$20</p>
-      <button class="add-to-cart">Add to Cart</button>
-    </div>
-  </section>
-...
-  <footer>
-    <h4>Subscribe to our Newsletter</h4>
-    <input id="email" type="email" placeholder="Enter your email">
-    <button id="subscribeBtn">Subscribe</button>
-  </footer>
-  
-<div class="eagle-bg">
-    <img src="images/eagle.png" alt="Tribal Eagle Background">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-       viewBox="0 0 629.4911 465.2872">
-    <g>
-      <!-- paste ALL the <path> elements from your Tribal-Eagle.svg here -->
-      <path d="M448.6068,205.5093c8.0196-6.1543..."/>
-      <path d="M237.9856,226.6275c-13.716-5.6612..."/>
-      <path d="M244.1604,153.7768c-5.2747-4.462..."/>
-      <!-- continue until every <path> from your file is included -->
-    </g>
-  </svg>
-</div>
-
-
-  <script>
-    // simple cart & subscribe logic
-    const cartLink = document.querySelector('.cart a');
-    let cartCount = 0;
-
-    document.querySelectorAll('.add-to-cart').forEach(btn => {
-      btn.addEventListener('click', () => {
-        cartCount++;
-        cartLink.textContent = `🛒 Cart (${cartCount})`;
-      });
-    });
-
-    document.getElementById('subscribeBtn').addEventListener('click', () => {
-      const email = document.getElementById('email').value.trim();
-      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-        alert('Please enter a valid email.');
-        return;
-      }
-      alert('Thanks — subscription received for ' + email);
-      document.getElementById('email').value = '';
-    });
-  </script>
-</body>
-</html>
+      alert('Thanks
