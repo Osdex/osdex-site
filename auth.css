@@ -1,19 +1,22 @@
+/* Reset and full viewport setup */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;   /* keep this */
+  height: 100%;   /* ✅ keep this, removes vh issues */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Background image with subtle zoom animation */
 body {
   background: url("images/clothing-rack.png") no-repeat center center;
-  background-size: cover;
-}
-
+  background-size: cover;   /* ✅ scales to fit screen */
   animation: zoomBG 30s ease-in-out infinite alternate;
 }
 
-/* Subtle zoom animation */
 @keyframes zoomBG {
   from { background-size: 100%; }
   to   { background-size: 110%; }
@@ -78,77 +81,41 @@ body {
 .auth-form button:hover {
   background: #ffd700;
 }
+
+/* Logo */
 .auth-logo {
-  max-width: 400px;   /* adjust size */
+  max-width: 400px;
   margin-bottom: 5px;
   display: block;
   margin-left: auto;
-  margin-right: auto; /* centers the logo */
+  margin-right: auto;
 }
+
+/* Social links */
 .social-links {
   margin-top: 20px;
 }
 
 .social-links a {
-  color: gold;              /* icon color */
-  font-size: 28px;          /* icon size */
+  color: gold;
+  font-size: 28px;
   margin: 0 10px;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #ffd700;           /* brighter gold on hover */
-  transform: scale(1.2);    /* slight zoom effect */
-}
-.social-links {
-  margin-top: 20px;
+  color: #ffd700;
+  transform: scale(1.2);
 }
 
-.social-links a {
-  color: gold;              /* icon color */
-  font-size: 28px;          /* icon size */
-  margin: 0 10px;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ffd700;           /* brighter gold on hover */
-  transform: scale(1.2);    /* slight zoom effect */
-}
-.container {
-  width: 100%;
-  max-width: 1200px; /* keeps it from stretching too wide on desktops */
-}
+/* Responsive tweaks */
 @media (max-width: 600px) {
   body {
     font-size: 14px;
     padding: 10px;
   }
-  .nav {
-    flex-direction: column;
+  .auth-form {
+    width: 90%;   /* ✅ makes form fit smaller screens */
   }
 }
-body {
-  margin: 0;
-  padding: 0;
-  background: url("images/clothing-rack.png") no-repeat center center fixed;
-  background-size: cover;   /* scales image to fill screen */
-  background-position: center; /* keeps it centered */
-  background-attachment: fixed; /* optional: keeps it static while scrolling */
-}
-html, body {
-  height: 100%;          /* make sure body fills the screen */
-  margin: 0;             /* remove default spacing */
-  padding: 0;
-}
-
-body {
-  background: url("images/clothing-rack.png") no-repeat center center;
-  background-size: cover;   /* scales image to fill screen */
-}
-
-
-
-
