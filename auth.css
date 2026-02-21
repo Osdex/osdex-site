@@ -3,11 +3,8 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;   /* ✅ keep this, removes vh issues */
+  min-height: 100vh;   /* ✅ ensures full viewport height */
   font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Background image with subtle zoom animation */
@@ -31,8 +28,13 @@ body {
   z-index: 0;
 }
 
-/* Auth container */
+/* Auth container wrapper for centering */
 .auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* ✅ vertical centering */
+  align-items: center;       /* ✅ horizontal centering */
+  min-height: 100vh;         /* ✅ fills viewport */
   position: relative;
   z-index: 1;
   text-align: center;
