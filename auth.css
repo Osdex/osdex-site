@@ -8,16 +8,11 @@ html, body {
   font-family: Arial, sans-serif;
 }
 
-/* Background image with zoom animation */
+/* Background image */
 body {
   background: url("images/clothing-rack.png") no-repeat center center;
-  background-size: cover;   /* ✅ immersive look on desktop */
-  animation: zoomBG 30s ease-in-out infinite alternate;
-}
-
-@keyframes zoomBG {
-  from { background-size: 100%; }
-  to   { background-size: 110%; }
+  background-size: contain;   /* ✅ fits vertically & horizontally */
+  background-color: black;    /* fills gaps if aspect ratio differs */
 }
 
 /* Dark overlay */
@@ -110,10 +105,6 @@ body {
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
-  body {
-    background-size: contain;   /* ✅ show full image on narrow screens */
-    background-color: black;    /* fills gaps if aspect ratio doesn’t match */
-  }
   .auth-form {
     width: 90%;   /* ✅ makes form fit smaller screens */
   }
