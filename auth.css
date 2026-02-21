@@ -12,7 +12,7 @@ html, body {
 /* Background image */
 body {
   background: url("images/clothing-rack.png") no-repeat center center;
-  background-size: contain;   /* ✅ fits vertically & horizontally */
+  background-size: cover;   /* ✅ fits vertically & horizontally */
   background-color: black;    /* fills gaps if aspect ratio differs */
 }
 
