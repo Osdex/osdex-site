@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>OSDEX Clothing</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -17,7 +16,7 @@
       overflow-x: hidden;
     }
 
-    /* Eagle background */
+    /* Eagle background (image method) */
     .eagle-bg {
       position: fixed;
       top: 0; left: 0;
@@ -31,12 +30,9 @@
       animation: rotateEagle 120s linear infinite, pulseEagle 10s ease-in-out infinite;
     }
 
-    .eagle-bg svg {
+    .eagle-bg img {
       width: 80%;
       height: auto;
-      fill: gold;
-      stroke: #fff;
-      stroke-width: 0.5;
       opacity: 0.2;
     }
 
@@ -219,16 +215,9 @@
 </head>
 <body>
 
-  <!-- Eagle background -->
+  <!-- Eagle background (image method) -->
   <div class="eagle-bg">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 629.4911 465.2872">
-      <g>
-        <!-- paste all your <path> elements here -->
-        <path d="M448.6068,205.5093c8.0196-6.1543..."/>
-        <path d="M237.9856,226.6275c-13.716-5.6612..."/>
-        <path d="M244.1604,153.7768c-5.2747-4.462..."/>
-      </g>
-    </svg>
+    <img src="images/eagle.png" alt="Tribal Eagle Background">
   </div>
 
   <!-- Header -->
@@ -297,4 +286,9 @@
         alert('Please enter a valid email.');
         return;
       }
-      alert('Thanks
+      alert('Thanks — subscription received for ' + email);
+      document.getElementById('email').value = '';
+    });
+  </script>
+</body>
+</html>
